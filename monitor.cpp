@@ -5,8 +5,7 @@
 #include <iostream>
 using std::cout, std::flush, std::this_thread::sleep_for, std::chrono::seconds;
 
-void alertBreak()
-{
+void alertBreak() {
   int repeatCount = 6;
   int timeInSeconds = 1;
   for (int i = 0; i < repeatCount; i++) {
@@ -17,8 +16,7 @@ void alertBreak()
     }
 }
 
-int temperatureOK(float temperature)
-{
+int temperatureOK(float temperature) {
   if (temperature > 102 || temperature < 95) {
     cout << "Temperature is critical!\n";
     alertBreak();
@@ -27,8 +25,7 @@ int temperatureOK(float temperature)
   return 1;
 }
 
-int pulseRateOK(float pulseRate)
-{
+int pulseRateOK(float pulseRate) {
   if (pulseRate < 60 || pulseRate > 100) {
     cout << "Pulse Rate is out of range!\n";
     alertBreak();
@@ -37,8 +34,7 @@ int pulseRateOK(float pulseRate)
   return 1;
 }
 
-int spo2OK(float spo2)
-{
+int spo2OK(float spo2) {
   if (spo2 < 90) {
     cout << "Oxygen Saturation out of range!\n";
     alertBreak();
