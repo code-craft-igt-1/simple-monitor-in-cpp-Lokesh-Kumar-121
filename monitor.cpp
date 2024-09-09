@@ -74,11 +74,11 @@ void alertBreak() {
 
 string chooseLanguage() {
     // list of available languages
-	// EN - English
-	// DE - Dutch
-	// ES - Spanish
-	// FR - French
-	// IT - Italian
+    // EN - English
+    // DE - Dutch
+    // ES - Spanish
+    // FR - French
+    // IT - Italian
     string currentLanguage = "EN";
     return currentLanguage;
 }
@@ -123,7 +123,7 @@ int temperatureOK(float temperature) {
     if (checkLimitNotInRange(temperature , upperLimit, lowerLimit)) {
         displayMessage("TEMP_CRITICAL");
         return 0;
-    }else {
+    } else {
         string valueWithinRange = "NORMAL";
         string message = checkLimitApproching(temperature, upperLimit, lowerLimit);
         if (message != valueWithinRange)
@@ -147,7 +147,7 @@ int pulseRateOK(float pulseRate) {
   if (checkLimitNotInRange(pulseRate, upperLimit, lowerLimit)) {
       displayMessage("PULSE_CRITICAL");
     return 0;
-  }else {
+  } else {
       string valueWithinRange = "NORMAL";
       string message = checkLimitApproching(pulseRate, upperLimit, lowerLimit);
       if (message != valueWithinRange)
@@ -169,8 +169,7 @@ int spo2OK(float spo2) {
     if (checkLimitNotInRange(spo2, upperLimit, lowerLimit)) {
         displayMessage("SPO2_CRITICAL");
         return 0;
-    }
-    else {
+    } else {
         string valueWithinRange = "NORMAL";
         string message = checkLimitApproching(spo2, upperLimit, lowerLimit);
         if (message != valueWithinRange)
