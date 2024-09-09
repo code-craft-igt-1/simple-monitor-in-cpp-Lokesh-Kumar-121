@@ -151,7 +151,7 @@ int pulseRateOK(float pulseRate) {
       string valueWithinRange = "NORMAL";
       string message = checkLimitApproching(pulseRate, upperLimit, lowerLimit);
       if (message != valueWithinRange)
-          pulseRateInWarningLimits(message);   
+          pulseRateInWarningLimits(message);
   }
   return 1;
 }
