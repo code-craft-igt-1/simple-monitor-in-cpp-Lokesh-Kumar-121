@@ -5,7 +5,8 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
-using std::cout, std::flush, std::this_thread::sleep_for, std::chrono::seconds, std::unordered_map, std::string;
+using std::cout, std::flush, std::this_thread::sleep_for, std::chrono::seconds,
+std::unordered_map, std::string;
 
 unordered_map<string, unordered_map<string, string>> TranslationMap = {
     {"EN", {
@@ -71,35 +72,31 @@ void alertBreak() {
     }
 }
 
-string chooseLanguage()
-{
-    //list of available languages
-		// EN - English
-		// DE - Dutch
-		// ES - Spanish
-		// FR - French
-		// IT - Italian
+string chooseLanguage() {
+    // list of available languages
+	 // EN - English
+	 // DE - Dutch
+	 // ES - Spanish
+	 // FR - French
+	 // IT - Italian
     string currentLanguage = "EN";
     return currentLanguage;
 }
 
-void displayMessage(string message)
-{
+void displayMessage(string message) {
     string language = "EN";
     language = chooseLanguage();
     cout << TranslationMap[language][message] << "\n";
     alertBreak();
 }
 
-bool checkLimitNotInRange(float actualValue, float upperLimit, float lowerLimit)
-{
+bool checkLimitNotInRange(float actualValue, float upperLimit, float lowerLimit) {
     if (actualValue < lowerLimit || actualValue > upperLimit)
         return true;
     return false;
 }
 
-string checkLimitApproching(float actualValue, float upperLimit, float lowerLimit)
-{
+string checkLimitApproching(float actualValue, float upperLimit, float lowerLimit) {
     float warningTolerance = 1.5 / 100;
     float upperWarningLimit = upperLimit - (upperLimit * warningTolerance);
     float lowerWarningLimit = lowerLimit + (lowerLimit * warningTolerance);
@@ -111,8 +108,7 @@ string checkLimitApproching(float actualValue, float upperLimit, float lowerLimi
         return "NORMAL";
 }
 
-void temperatureInWarningLimits(string message)
-{
+void temperatureInWarningLimits(string message) {
     string temperatureInUpperWarning = "UPPERWARNING";
     string temperatureInLowerWarning = "LOWERWARNING";
     if (message == temperatureInUpperWarning)
@@ -137,8 +133,7 @@ int temperatureOK(float temperature) {
     }
 }
 
-void pulseRateInWarningLimits(string message)
-{
+void pulseRateInWarningLimits(string message) {
     string pulseRateInUpperWarning = "UPPERWARNING";
     string pulseRateInLowerWarning = "LOWERWARNING";
     if (message == pulseRateInUpperWarning)
@@ -158,13 +153,12 @@ int pulseRateOK(float pulseRate) {
       string valueWithinRange = "NORMAL";
       string message = checkLimitApproching(pulseRate, upperLimit, lowerLimit);
       if (message != valueWithinRange)
-          pulseRateInWarningLimits(message);
-      return 1;
+          pulseRateInWarningLimits(message);   
   }
+  return 1;
 }
 
-void spo2InWarningLimits(string message)
-{
+void spo2InWarningLimits(string message) {
     string pulseRateInUpperWarning = "UPPERWARNING";
     string pulseRateInLowerWarning = "LOWERWARNING";
     if (message == pulseRateInLowerWarning)
@@ -182,9 +176,9 @@ int spo2OK(float spo2) {
         string valueWithinRange = "NORMAL";
         string message = checkLimitApproching(spo2, upperLimit, lowerLimit);
         if (message != valueWithinRange)
-            spo2InWarningLimits(message);
-        return 1;
+            spo2InWarningLimits(message);   
     }
+    return 1;
 }
 
 int vitalsOk(float temperature, float pulseRate, float spo2) {
